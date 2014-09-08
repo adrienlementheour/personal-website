@@ -5,9 +5,13 @@ var tlBlocVideo;
 var animationEase = Cubic.easeInOut;
 var animationTime = 1;
 
-$(document).ready(function(){
+function animLoad(){
+	TweenMax.fromTo($("#bloc-content"), 0.8, {y: "100px", opacity: 0}, {y: "0", opacity: 1});
+	TweenMax.fromTo($(".categ"), 1, {y: "80px"}, {y: "0"});
+	TweenMax.fromTo($(".categ h4"), 0.5, {y: "80px"}, {y: "0"});
+}
 
-
+function illus(){
 	var canvas = document.getElementById('canvas-bloc-illus');
 	// Create an empty project and a view for the canvas:
 	paper.setup(canvas);
@@ -71,12 +75,30 @@ $(document).ready(function(){
 	
 	tool.onMouseDown= function(event) {
 		// selectionné
-        myCircle.selected = true;
-    }
-    
-    tool.onMouseUp= function(event) {
-        myCircle.selected = false;
-    }
+	    myCircle.selected = true;
+	}
+	
+	tool.onMouseUp= function(event) {
+	    myCircle.selected = false;
+	}
+	
+}
+
+$(document).ready(function(){
+	illus();
+	animLoad();
+	
+	TweenMax.set($(".project-content"), {display: "none", opacity: 0});
+	
+	$("a.project-link").click(function() {
+		var liParent = $(this).closest("li.project");
+		liParent.addClass("open");
+		TweenMax.set($(".project-content"), {display: "block"});
+		TweenMax.to($(".project-content",liParent), 0.3, { opacity: 1,  ease:Linear.easeNone});
+		TweenMax.to(liParent, 0.3, { width: "100%",  ease:Linear.easeNone});
+		//TweenMax.to($(this), 0.15, { "font-size": "2.5em",  ease:Linear.easeNone});
+		return false;
+	});
 });
 
 $(window).resize(function() {
