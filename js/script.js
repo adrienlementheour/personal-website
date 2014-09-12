@@ -75,6 +75,15 @@ function illus(){
 			var x = event.point.x;
 			point.x += (x - point.x) / 3;
 		}
+		
+		/*var hitOptions = {
+		fill: true, 
+		stroke: true, 
+		segments: true, 
+		tolerance: 200 
+		};  
+		var hitResult = myCircle.hitTest(event.point, hitOptions);
+		console.log(hitResult);*/
 	}
 	
 	
@@ -97,23 +106,43 @@ function playVideo(){
   $("li.project.open video").get(0).play();
 }
 
+////////////////////////
+/// Ouvrir un projet ///
+////////////////////////
+function openProject(projectLink){
+	var liParent = projectLink.closest("li.project");
+	liParent.addClass("open");
+	TweenMax.set($(".project-content"), {display: "block"});
+	var tlProjet = new TimelineMax();
+	tlProjet.to(liParent, 0.2, { width: "100%",  ease:Cubic.easeInOut});
+	tlProjet.to($(".video-wrapper", liParent), 0.3, { opacity: 1, y: "0", delay: 0.3,  ease:Linear.easeNone, onComplete:playVideo});
+}
+
+////////////////////////
+/// Fermer un projet ///
+////////////////////////
+function closeProject(projectLink){
+	var liParent = projectLink.closest("li.project");
+	liParent.addClass("open");
+	TweenMax.set($(".project-content"), {display: "block"});
+	var tlCloseProjet = new TimelineMax();
+	tlCloseProjet.to($(".video-wrapper", liParent), 0.3, { opacity: 0, y: "50px",  ease:Linear.easeNone});
+	tlCloseProjet.to(liParent, 0.3, { width: "445px",  ease:Linear.easeNone}),0;
+}
+
 $(document).ready(function(){
 	illus();
 	animLoad();
 	
-	TweenMax.set($(".project-content"), {display: "none", opacity: 0});
+	TweenMax.set($(".project-content"), {display: "none"});
 	TweenMax.set($(".video-wrapper"), {opacity: 0, y: "50px"});
 	
 	$("a.project-link").click(function() {
-		var liParent = $(this).closest("li.project");
-		liParent.addClass("open");
-		TweenMax.set($(".project-content"), {display: "block"});
-		var tlProjet = new TimelineMax();
-		tlProjet.to($(".project-content",liParent), 0.3, { opacity: 1,  ease:Linear.easeNone});
-		tlProjet.to(liParent, 0.15, { width: "100%",  ease:Linear.easeNone});
-		//tlProjet.to($(this), 0.15, { "font-size": "2em",  ease:Linear.easeNone}),0;
-		tlProjet.to($(".video-wrapper", liParent), 0.3, { opacity: 1, y: "0", delay: 0.3,  ease:Linear.easeNone, onComplete:playVideo});
-		
+		if(!$("this").closest("li.project").hasClass("open")){
+			openProject($(this));
+		}else{
+			closeProject($(this));
+		}
 		
 		return false;
 	});

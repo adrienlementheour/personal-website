@@ -251,6 +251,13 @@ textarea {
 
 html, body{
 	.campton-book(1em);
+	min-height: 100%;
+	height: 100%;
+}
+
+html{
+	overflow: hidden;
+	position: relative;
 }
 
 body{
@@ -404,9 +411,52 @@ a.plus-link{
 							width: 100%;
 							height: auto;
 							position: relative;
+							overflow: hidden;
+							.border-radius(4px);
 							video{
 								width: 100%;
 								height: auto;
+							}
+						}
+						.project-desc{
+							display: block;
+							width: auto;
+							height: auto;
+							.campton-medium(1em);
+							line-height: 1.3em;
+							float: right;
+							margin: 40px 0 0 0;
+							.project-desc-decoration{
+								display: block;
+								width: 50px;
+								height: 5px;
+								margin: 0 0 20px 0;
+								background-color: @bleufolio;
+							}
+							ul.project-categ{
+								display: block;
+								width: 100%;
+								height: auto;
+								margin: 0;
+								padding: 0;
+								list-style-type: none;
+								li{
+									display: block;
+									width: 100%;
+									height: auto;
+									margin: 10px 0;
+									padding: 0;
+									.categ-title{
+										.campton-light(1em);
+										color: @bleufolio;
+									}
+									.content-categ{
+										.campton-book(1.3em);
+										&.project-content-categ{
+											width: 250px;
+										}
+									}
+								}
 							}
 						}
 					}

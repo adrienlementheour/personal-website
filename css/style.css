@@ -142,6 +142,12 @@ body {
   font-size: 1em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100%;
+  height: 100%;
+}
+html {
+  overflow: hidden;
+  position: relative;
 }
 body {
   background: #faf9db;
@@ -337,10 +343,70 @@ a.plus-link:hover:after {
   width: 100%;
   height: auto;
   position: relative;
+  overflow: hidden;
+  -webkit-border-radius: 4px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 4px;
+  -moz-background-clip: padding;
+  border-radius: 4px;
+  background-clip: padding-box;
 }
 .container #bloc-content .categ ul#projects li.project .project-content .video-wrapper video {
   width: 100%;
   height: auto;
+}
+.container #bloc-content .categ ul#projects li.project .project-content .project-desc {
+  display: block;
+  width: auto;
+  height: auto;
+  font-family: 'CamptonMedium', sans-serif;
+  font-weight: normal;
+  font-size: 1em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.3em;
+  float: right;
+  margin: 40px 0 0 0;
+}
+.container #bloc-content .categ ul#projects li.project .project-content .project-desc .project-desc-decoration {
+  display: block;
+  width: 50px;
+  height: 5px;
+  margin: 0 0 20px 0;
+  background-color: #1e32d2;
+}
+.container #bloc-content .categ ul#projects li.project .project-content .project-desc ul.project-categ {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.container #bloc-content .categ ul#projects li.project .project-content .project-desc ul.project-categ li {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 10px 0;
+  padding: 0;
+}
+.container #bloc-content .categ ul#projects li.project .project-content .project-desc ul.project-categ li .categ-title {
+  font-family: 'CamptonLight', sans-serif;
+  font-weight: normal;
+  font-size: 1em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #1e32d2;
+}
+.container #bloc-content .categ ul#projects li.project .project-content .project-desc ul.project-categ li .content-categ {
+  font-family: 'CamptonBook', sans-serif;
+  font-weight: normal;
+  font-size: 1.3em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.container #bloc-content .categ ul#projects li.project .project-content .project-desc ul.project-categ li .content-categ.project-content-categ {
+  width: 250px;
 }
 .container #bloc-content .categ ul#social {
   display: block;
