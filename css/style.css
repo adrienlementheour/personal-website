@@ -357,7 +357,8 @@ img {
 /******* LIENS / BOUTONS *******/
 a {
   text-decoration: none;
-  transition: 0.3s ease-in-out;
+  -webkit-transition: 0.3s ease-in-out;
+          transition: 0.3s ease-in-out;
 }
 a:focus {
   outline: 0;
@@ -406,7 +407,8 @@ body {
 }
 a.plus-link {
   position: relative;
-  transition: all 0.15s;
+  -webkit-transition: all 0.15s;
+          transition: all 0.15s;
   color: #000000;
 }
 a.plus-link:after {
@@ -424,15 +426,20 @@ a.plus-link:after {
   line-height: 82px;
   text-align: center;
   opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.15s;
+  -webkit-transform: translateY(20px);
+      -ms-transform: translateY(20px);
+          transform: translateY(20px);
+  -webkit-transition: all 0.15s;
+          transition: all 0.15s;
 }
 a.plus-link:hover {
   color: #1e32d2;
 }
 a.plus-link:hover:after {
   opacity: 1;
-  transform: translateY(0);
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
 }
 .container {
   display: block;
@@ -707,7 +714,7 @@ a.plus-link:hover:after {
   }
   img {
     max-width: 100% !important;
-
+    page-break-inside: avoid;
   }
   @page {
     margin: .5cm;
