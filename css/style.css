@@ -570,7 +570,12 @@ a.plus-link:hover:after {
   height: auto;
   position: relative;
   overflow: hidden;
+  -webkit-border-radius: 4px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 4px;
+  -moz-background-clip: padding;
   border-radius: 4px;
+  background-clip: padding-box;
 }
 .container #bloc-content .categ ul#projects li.project .project-content .video-wrapper video {
   width: 100%;
@@ -707,7 +712,7 @@ a.plus-link:hover:after {
   }
   img {
     max-width: 100% !important;
-    page-break-inside: avoid;
+
   }
   @page {
     margin: .5cm;
