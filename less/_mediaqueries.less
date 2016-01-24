@@ -1,0 +1,52 @@
+/******* RESPONSIVE *******/
+
+@media (max-width: 1150px){
+}
+
+@media (max-width: 979px){
+}
+
+@media (max-width: 767px){
+}
+
+@media (max-width: 450px){
+}
+
+
+/******* RETINA *******/
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi) {
+    
+}
+
+
+/******* PRINT *******/
+ 
+@media print {
+    *{
+        color: #000 !important;
+    } 
+    a{
+        text-decoration: underline;
+        &[href]:after{
+            content: ' (' attr(href) ')';
+        }
+        &[href^="#"]:after{
+            content: '';
+        }
+    }
+    img{
+        max-width: 100% !important;
+        page-break-inside: avoid;
+    }
+    @page{
+        margin: .5cm;
+    }
+    p, h2, h3{
+        orphans: 3;
+        widows: 3;
+    }
+    h2, h3{
+        page-break-after: avoid;
+    }
+}

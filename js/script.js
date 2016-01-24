@@ -5,12 +5,18 @@ var tlBlocVideo;
 var animationEase = Cubic.easeInOut;
 var animationTime = 1;
 
+/////////////////////////////
+// Animation au chargement //
+/////////////////////////////
 function animLoad(){
-	TweenMax.fromTo($("#bloc-content"), 0.8, {y: "100px", opacity: 0}, {y: "0", opacity: 1});
-	TweenMax.fromTo($(".categ"), 1, {y: "80px"}, {y: "0"});
-	TweenMax.fromTo($(".categ h4"), 0.5, {y: "80px"}, {y: "0"});
+	TweenMax.fromTo($("#bloc-content"), 0.8, {y: "100px", opacity: 0}, {y: "0", opacity: 1, delay: 0.8});
+	TweenMax.fromTo($(".categ"), 1, {y: "80px"}, {y: "0", delay: 0.8});
+	TweenMax.fromTo($(".categ h4"), 0.5, {y: "80px"}, {y: "0", delay: 0.8});
 }
 
+///////////////////////
+// Animation paperjs //
+///////////////////////
 function illus(){
 	var canvas = document.getElementById('canvas-bloc-illus');
 	// Create an empty project and a view for the canvas:
@@ -69,6 +75,15 @@ function illus(){
 			var x = event.point.x;
 			point.x += (x - point.x) / 3;
 		}
+		
+		/*var hitOptions = {
+		fill: true, 
+		stroke: true, 
+		segments: true, 
+		tolerance: 200 
+		};  
+		var hitResult = myCircle.hitTest(event.point, hitOptions);
+		console.log(hitResult);*/
 	}
 	
 	
@@ -84,22 +99,55 @@ function illus(){
 	
 }
 
+/////////////////////////
+// Lecture de la video //
+/////////////////////////
+function playVideo(){
+  $("li.project.open video").get(0).play();
+}
+
+////////////////////////
+/// Ouvrir un projet ///
+////////////////////////
+function openProject(projectLink){
+	var liParent = projectLink.closest("li.project");
+	liParent.addClass("open");
+	TweenMax.set($(".project-content"), {display: "block"});
+	var tlProjet = new TimelineMax();
+	tlProjet.to(liParent, 0.2, { width: "100%",  ease:Cubic.easeInOut});
+	tlProjet.to($(".video-wrapper", liParent), 0.3, { opacity: 1, y: "0", delay: 0.3,  ease:Linear.easeNone, onComplete:playVideo});
+}
+
+////////////////////////
+/// Fermer un projet ///
+////////////////////////
+function closeProject(projectLink){
+	var liParent = projectLink.closest("li.project");
+	liParent.addClass("open");
+	TweenMax.set($(".project-content"), {display: "block"});
+	var tlCloseProjet = new TimelineMax();
+	tlCloseProjet.to($(".video-wrapper", liParent), 0.3, { opacity: 0, y: "50px",  ease:Linear.easeNone});
+	tlCloseProjet.to(liParent, 0.3, { width: "445px",  ease:Linear.easeNone}),0;
+}
+
 $(document).ready(function(){
 	illus();
 	animLoad();
 	
-	TweenMax.set($(".project-content"), {display: "none", opacity: 0});
+	TweenMax.set($(".project-content"), {display: "none"});
+	TweenMax.set($(".video-wrapper"), {opacity: 0, y: "50px"});
 	
-	$("a.project-link").click(function() {
-		var liParent = $(this).closest("li.project");
-		liParent.addClass("open");
-		TweenMax.set($(".project-content"), {display: "block"});
-		TweenMax.to($(".project-content",liParent), 0.3, { opacity: 1,  ease:Linear.easeNone});
-		TweenMax.to(liParent, 0.3, { width: "100%",  ease:Linear.easeNone});
-		//TweenMax.to($(this), 0.15, { "font-size": "2.5em",  ease:Linear.easeNone});
+	/*$("a.project-link").click(function() {
+		if(!$("this").closest("li.project").hasClass("open")){
+			openProject($(this));
+		}else{
+			closeProject($(this));
+		}
+		
 		return false;
-	});
+	});*/
 });
+
 
 $(window).resize(function() {
 

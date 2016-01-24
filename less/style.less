@@ -1,256 +1,153 @@
-/* @group import */
+@charset "utf-8";
 
-@import "lesshat.less";
+@import "_lesshat.less";
+@import "_norm.less";
+@import "_fonts.less";
 
-/* @end */
-
-/* @group global var */
-
+@txt: #565656;
+@transition: .3s ease-in-out;
 @blanc: #fff;
 @noir: #000;
 @jaunefolio: #faf9db;
 @bleufolio: #1e32d2;
 
-/* @end */
+/******* GÉNÉRAL *******/
 
-
-
-/* @group Boilerplate */
-
-html,
-button,
-input,
-select,
-textarea {
-    color: rgb(35,35,35);
-}
-hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1em 0;
-    padding: 0;
-}
-img {
-    vertical-align: middle;
-}
-fieldset {
-    border: 0;
-    margin: 0;
-    padding: 0;
-}
-textarea {
-    resize: vertical;
-}
-
-/* @end */
-
-/* @group Mes styles */
-
-/* @group Font */
-
-@font-face {
-  font-family: 'CamptonSemiBold';
-  src: url('../fonts/Campton/Rene Bieder - Campton SemiBold.eot'); /* IE9 Compat Modes */
-  src: url('../fonts/Campton/Rene Bieder - Campton SemiBold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../fonts/Campton/Rene Bieder - Campton SemiBold.woff') format('woff'), /* Modern Browsers */
-       url('../fonts/Campton/Rene Bieder - Campton SemiBold.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('../fonts/Campton/Rene Bieder - Campton SemiBold.svg#07d531e49ef067e27012643fe1fb0725') format('svg'); /* Legacy iOS */
-       
-  font-style:   normal;
-  font-weight:  700;
-}
-
-@font-face {
-  font-family: 'CamptonBook';
-  src: url('../fonts/Campton/Rene Bieder - Campton Book.eot'); /* IE9 Compat Modes */
-  src: url('../fonts/Campton/Rene Bieder - Campton Book.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../fonts/Campton/Rene Bieder - Campton Book.woff') format('woff'), /* Modern Browsers */
-       url('../fonts/Campton/Rene Bieder - Campton Book.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('../fonts/Campton/Rene Bieder - Campton Book.svg#539bd9c45d8c6738cfda9bd764bef0e7') format('svg'); /* Legacy iOS */
-       
-  font-style:   normal;
-  font-weight:  400;
-}
-
-@font-face {
-  font-family: 'CamptonBookItalic';
-  src: url('../fonts/Campton/Rene Bieder - Campton Book Italic.eot'); /* IE9 Compat Modes */
-  src: url('../fonts/Campton/Rene Bieder - Campton Book Italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../fonts/Campton/Rene Bieder - Campton Book Italic.woff') format('woff'), /* Modern Browsers */
-       url('../fonts/Campton/Rene Bieder - Campton Book Italic.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('../fonts/Campton/Rene Bieder - Campton Book Italic.svg#43972483396cb8ddc137a00c31095aee') format('svg'); /* Legacy iOS */
-       
-  font-style:   italic;
-  font-weight:  400;
-}
-
-@font-face {
-  font-family: 'CamptonLight';
-  src: url('../fonts/Campton/Rene Bieder - Campton Light.eot'); /* IE9 Compat Modes */
-  src: url('../fonts/Campton/Rene Bieder - Campton Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../fonts/Campton/Rene Bieder - Campton Light.woff') format('woff'), /* Modern Browsers */
-       url('../fonts/Campton/Rene Bieder - Campton Light.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('../fonts/Campton/Rene Bieder - Campton Light.svg#cb0076bde307d1c9b973c30a403bd200') format('svg'); /* Legacy iOS */
-       
-  font-style:   normal;
-  font-weight:  200;
-}
-
-@font-face {
-  font-family: 'CamptonLightItalic';
-  src: url('../fonts/Campton/Rene Bieder - Campton Light Italic.eot'); /* IE9 Compat Modes */
-  src: url('../fonts/Campton/Rene Bieder - Campton Light Italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../fonts/Campton/Rene Bieder - Campton Light Italic.woff') format('woff'), /* Modern Browsers */
-       url('../fonts/Campton/Rene Bieder - Campton Light Italic.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('../fonts/Campton/Rene Bieder - Campton Light Italic.svg#fd4b1d98d6556f5e51da865b13538e56') format('svg'); /* Legacy iOS */
-       
-  font-style:   italic;
-  font-weight:  200;
-}
-
-@font-face {
-  font-family: 'CamptonMedium';
-  src: url('../fonts/Campton/Rene Bieder - Campton Medium.eot'); /* IE9 Compat Modes */
-  src: url('../fonts/Campton/Rene Bieder - Campton Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../fonts/Campton/Rene Bieder - Campton Medium.woff') format('woff'), /* Modern Browsers */
-       url('../fonts/Campton/Rene Bieder - Campton Medium.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('../fonts/Campton/Rene Bieder - Campton Medium.svg#4b795d143b94453d46748baed030e15a') format('svg'); /* Legacy iOS */
-       
-  font-style:   normal;
-  font-weight:  400;
-}
-
-@font-face {
-  font-family: 'CamptonMediumItalic';
-  src: url('../fonts/Campton/Rene Bieder - Campton Medium Italic.eot'); /* IE9 Compat Modes */
-  src: url('../fonts/Campton/Rene Bieder - Campton Medium Italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../fonts/Campton/Rene Bieder - Campton Medium Italic.woff') format('woff'), /* Modern Browsers */
-       url('../fonts/Campton/Rene Bieder - Campton Medium Italic.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('../fonts/Campton/Rene Bieder - Campton Medium Italic.svg#90153ef67054648aae573f44ca7335c5') format('svg'); /* Legacy iOS */
-       
-  font-style:   italic;
-  font-weight:  400;
-}
-
-@font-face {
-  font-family: 'CamptonThin';
-  src: url('../fonts/Campton/Rene Bieder - Campton Thin.eot'); /* IE9 Compat Modes */
-  src: url('../fonts/Campton/Rene Bieder - Campton Thin.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../fonts/Campton/Rene Bieder - Campton Thin.woff') format('woff'), /* Modern Browsers */
-       url('../fonts/Campton/Rene Bieder - Campton Thin.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('../fonts/Campton/Rene Bieder - Campton Thin.svg#726004dfd21b579ad4cf6a5fb0df1ae6') format('svg'); /* Legacy iOS */
-       
-  font-style:   normal;
-  font-weight:  200;
-}
-
-@font-face {
-  font-family: 'CamptonThinItalic';
-  src: url('../fonts/Campton/Rene Bieder - Campton Thin Italic.eot'); /* IE9 Compat Modes */
-  src: url('../fonts/Campton/Rene Bieder - Campton Thin Italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../fonts/Campton/Rene Bieder - Campton Thin Italic.woff') format('woff'), /* Modern Browsers */
-       url('../fonts/Campton/Rene Bieder - Campton Thin Italic.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('../fonts/Campton/Rene Bieder - Campton Thin Italic.svg#0e15bc800a9496efaf80db8335497f8c') format('svg'); /* Legacy iOS */
-       
-  font-style:   italic;
-  font-weight:  200;
-}
-
-.campton-semi-bold(@size){
-	font-family: 'CamptonSemiBold', sans-serif;
-	font-weight: normal;
-	font-size: @size;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
-.campton-book(@size){
-	font-family: 'CamptonBook', sans-serif;
-	font-weight: normal;
-	font-size: @size;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
-.campton-book-italic(@size){
-	font-family: 'CamptonBookItalic', sans-serif;
-	font-weight: normal;
-	font-size: @size;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
-.campton-light(@size){
-	font-family: 'CamptonLight', sans-serif;
-	font-weight: normal;
-	font-size: @size;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
-.campton-light-italic(@size){
-	font-family: 'CamptonLightItalic', sans-serif;
-	font-weight: normal;
-	font-size: @size;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
-.campton-medium(@size){
-	font-family: 'CamptonMedium', sans-serif;
-	font-weight: normal;
-	font-size: @size;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
-.campton-medium-italic(@size){
-	font-family: 'CamptonMediumItalic', sans-serif;
-	font-weight: normal;
-	font-size: @size;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
-.campton-thin(@size){
-	font-family: 'CamptonThin', sans-serif;
-	font-weight: normal;
-	font-size: @size;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
-.campton-thin-italic(@size){
-	font-family: 'CamptonThinItalic', sans-serif;
-	font-weight: normal;
-	font-size: @size;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
-
-
-
-/* @end */
-
-/* @group General */
-
-/* selection */
-::-moz-selection { 
-	background: @noir;  
-	color: @blanc;
-	text-shadow: none;
-}
-::selection { 
-	background: @noir;  
-	color: @blanc; 
+::-moz-selection{ 
+	background: #000;  
+	color: #fff;
 	text-shadow: none; 
+}
+::selection{ 
+	background: #000;  
+	color: #fff; 
+	text-shadow: none; 
+}
+
+html{
+  font-size: 62.5%; /* sets the base font to 10px for easier math */
+}
+
+body{
+  font-size: 1.6em;
+  /* sets the default sizing to make sure nothing is actually 16px */
+  line-height: 1;
+}
+
+h1{
+    font-size: 3em;
+    margin: .67em 0;
+}
+
+h2{
+    font-size: 2.5em;
+    margin: .83em 0;
+}
+
+h3{
+    font-size: 2em;
+    margin: 1em 0;
+}
+
+h4{
+    font-size: 1.7em;
+    margin: 1.33em 0;
+}
+
+h5{
+    font-size: 1.3em;
+    margin: 1.67em 0;
+}
+
+h6{
+    font-size: 1.1em;
+    margin: 2.33em 0;
+}
+
+p{
+    margin: 1em 0;
+}
+
+blockquote{
+    margin: 1em 40px;
+}
+
+ol, ul{
+    margin: 1em 0;
+    padding: 0 0 0 40px;
+}
+
+img{
+  max-width: 100%;
+  height: auto;
+}
+
+
+/******* LIENS / BOUTONS *******/
+
+a{
+  text-decoration: none;
+  transition: @transition;
+  &:focus, &:hover{
+  }
+  &:focus{
+      outline: 0;
+  }
+  &:active{
+  }
+}
+
+
+/******* FORMULAIRES *******/
+
+::-webkit-input-placeholder{
+    color: #8b8b8b;
+}
+::-moz-placeholder{
+    color: #8b8b8b;
+}
+:-ms-input-placeholder{
+    color: #8b8b8b;
+}
+
+input, textarea{
+  &:focus{
+      outline: 0;
+  }
+}
+
+input{
+
+}
+
+button{
+  &:focus{
+      outline: 0;
+  }
+}
+
+label{
+
+}
+
+
+/******* MODULES *******/
+
+.container{
+    max-width: 1200px;
+    padding: 0 20px;
+    margin: 0 auto;
 }
 
 html, body{
 	.campton-book(1em);
+	min-height: 100%;
+	height: 100%;
+}
+
+html{
+	overflow: hidden;
+	position: relative;
 }
 
 body{
@@ -261,7 +158,7 @@ body{
 
 a.plus-link{
 	position: relative;
-	.transition(all 0.15s);
+	transition: all 0.15s;
 	color: @noir;
 	&:after{
 		content: "+";
@@ -277,16 +174,15 @@ a.plus-link{
 		height: 70px;
 		line-height: 82px;
 		text-align: center;
-		
-		.opacity(0);
-		.translateY(20px);
-		.transition(all 0.15s);
+		opacity: 0;
+		transform: translateY(20px);
+		transition: all 0.15s;
 	}
 	&:hover{
 		color: @bleufolio;
 		&:after{
-			.opacity(1);
-			.translateY(0);
+			opacity: 1;
+			transform: translateY(0);
 		}
 	}
 }
@@ -373,7 +269,7 @@ a.plus-link{
 						width: 100%;
 						height: 63px;
 						padding: 20px 0 32px 20px;
-						.box-sizing(border-box);
+						box-sizing: border-box;
 						text-decoration: none;
 						color: @noir;
 						text-transform: uppercase;
@@ -404,9 +300,52 @@ a.plus-link{
 							width: 100%;
 							height: auto;
 							position: relative;
+							overflow: hidden;
+							border-radius: 4px;
 							video{
 								width: 100%;
 								height: auto;
+							}
+						}
+						.project-desc{
+							display: block;
+							width: auto;
+							height: auto;
+							.campton-medium(1em);
+							line-height: 1.3em;
+							float: right;
+							margin: 40px 0 0 0;
+							.project-desc-decoration{
+								display: block;
+								width: 50px;
+								height: 5px;
+								margin: 0 0 20px 0;
+								background-color: @bleufolio;
+							}
+							ul.project-categ{
+								display: block;
+								width: 100%;
+								height: auto;
+								margin: 0;
+								padding: 0;
+								list-style-type: none;
+								li{
+									display: block;
+									width: 100%;
+									height: auto;
+									margin: 10px 0;
+									padding: 0;
+									.categ-title{
+										.campton-light(1em);
+										color: @bleufolio;
+									}
+									.content-categ{
+										.campton-book(1.3em);
+										&.project-content-categ{
+											width: 250px;
+										}
+									}
+								}
 							}
 						}
 					}
@@ -449,120 +388,31 @@ a.plus-link{
 	}
 }
 
-/* @end */
+/******* HEADER *******/
 
 
+/******* FOOTER *******/
 
 
-/* @end */
-  
+/******* CLASSES GENERALES  *******/
 
-/* @group Non semantic Boilerplate */
-
-/* remplacement image */
-.ir {
-    background-color: transparent;
-    border: 0;
-    overflow: hidden;
-    /* IE 6/7 fallback */
-    *text-indent: -9999px;
-}
-.ir:before {
-    content: "";
-    display: block;
-    width: 0;
-    height: 100%;
-}
-
-/* masquage de texte, alternative (buggé?) */
-.hide-text {
-	text-indent: 100%;
-	white-space: nowrap;
-	overflow: hidden;
-}
-
-/* masqué */
-.hidden {
-    display: none !important;
-    visibility: hidden;
-}
-
-/* masqué juste sur l'écran (pas sur RSS ou moteurs) */
-.visuallyhidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
+.reset-ul{
     padding: 0;
-    position: absolute;
-    width: 1px;
+    margin: 0;
+    list-style: none;
 }
 
-/* clearfix */
+.hidden{
+    display: none !important;
+}
 
 .clearfix:before,
-.clearfix:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
+.clearfix:after{
+    content: " ";
+    display: table;
 }
-.clearfix:after {
+.clearfix:after{
     clear: both;
 }
 
-/* @end */
-
-
-/* ==|== media queries ======================================================
-   ========================================================================== */
-
-
-/* mes resolutions responsives "classiques" */
-@media (max-width: 1150px) {
-
-}
-
-
-@media (max-width: 979px) {
-
-}
-
-
-
-@media (max-width: 767px) {
-
-}
-
-
-
-
-
-/* retina */
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi) {
-    
-}
-
-
-
-/* ==|== print styles =======================================================
-   ========================================================================== */
- 
-@media print {
-  * {} /* Black prints faster: h5bp.com/s */
-  a, a:visited { text-decoration: underline; }
-  a[href]:after { content: " (" attr(href) ")"; }
-  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  /* Don't show links for images, or javascript/internal links */
-  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
-  thead { display: table-header-group; } /* h5bp.com/t */
-  tr, img { page-break-inside: avoid; }
-  img { max-width: 100% !important; }
-  @page { margin: 0.5cm; }
-  p, h2, h3 { orphans: 3; widows: 3; }
-  h2, h3 { page-break-after: avoid; }
-}
-
-/* ==========================================================================
-   Print styles.
-   Inlined to avoid required HTTP connection: h5bp.com/r
-   ========================================================================== */
-
+@import "_mediaqueries.less";
