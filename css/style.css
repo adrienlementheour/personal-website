@@ -707,7 +707,7 @@ a.plus-link:hover:after {
   }
   img {
     max-width: 100% !important;
-    page-break-inside: avoid;
+
   }
   @page {
     margin: .5cm;
