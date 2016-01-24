@@ -137,7 +137,7 @@ $(document).ready(function(){
 	TweenMax.set($(".project-content"), {display: "none"});
 	TweenMax.set($(".video-wrapper"), {opacity: 0, y: "50px"});
 	
-	$("a.project-link").click(function() {
+	/*$("a.project-link").click(function() {
 		if(!$("this").closest("li.project").hasClass("open")){
 			openProject($(this));
 		}else{
@@ -145,7 +145,7 @@ $(document).ready(function(){
 		}
 		
 		return false;
-	});
+	});*/
 });
 
 
