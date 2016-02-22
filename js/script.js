@@ -63,7 +63,7 @@ function illus(){
 			};
 		}
 	}
-	tool.onMouseMove = function(event) {
+	/*tool.onMouseMove = function(event) {
 		var location = myCircle.getNearestLocation(event.point);
 		var segment = location.segment;
 		var point = segment.point;
@@ -75,27 +75,19 @@ function illus(){
 			var x = event.point.x;
 			point.x += (x - point.x) / 3;
 		}
-		
-		/*var hitOptions = {
-		fill: true, 
-		stroke: true, 
-		segments: true, 
-		tolerance: 200 
-		};  
-		var hitResult = myCircle.hitTest(event.point, hitOptions);
-		console.log(hitResult);*/
-	}
+	
+	}*/
 	
 	
 	
-	tool.onMouseDown= function(event) {
+	/*tool.onMouseDown= function(event) {
 		// selectionné
 	    myCircle.selected = true;
 	}
 	
 	tool.onMouseUp= function(event) {
 	    myCircle.selected = false;
-	}
+	}*/
 	
 }
 
