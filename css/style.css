@@ -708,6 +708,96 @@ a.plus-link:hover:after {
   clear: both;
 }
 /******* RESPONSIVE *******/
+@media (max-width: 1150px) {
+  .container {
+    width: 90%;
+  }
+  .container #bloc-content {
+    width: 830px;
+    margin: 0 0 0 200px;
+  }
+}
+@media (max-width: 1024px) {
+  .container {
+    padding: 160px 0 60px 0;
+  }
+  .container #bloc-illus {
+    margin: 0;
+    top: -40px;
+    right: -40px;
+  }
+  .container #bloc-content {
+    width: auto;
+    box-sizing: border-box;
+    padding: 30px 0 75px 170px;
+    margin: 0;
+  }
+  .container #bloc-content #trait {
+    left: 149px;
+  }
+  .container #bloc-content .categ h3 {
+    width: 100%;
+    font-size: 2em;
+  }
+}
+@media (max-width: 767px) {
+  .container {
+    padding: 20px 0;
+  }
+  .container #bloc-illus {
+    top: -110px;
+    right: -200px;
+  }
+  .container #bloc-content {
+    padding: 30px 0 75px 0;
+  }
+  .container #bloc-content #trait {
+    display: none;
+  }
+  .container #bloc-content #name {
+    margin-bottom: 40px;
+  }
+  .container #bloc-content .categ {
+    margin-bottom: 40px;
+  }
+  .container #bloc-content .categ h3 {
+    margin: 15px 0 0 0;
+    font-size: 1.6em;
+  }
+  .container #bloc-content .categ h4 {
+    position: relative;
+    text-align: left;
+    width: auto;
+    top: inherit;
+    left: inherit;
+    margin: 0 0 15px 0;
+  }
+  .container #bloc-content .categ ul#projects {
+    margin: 0;
+  }
+  .container #bloc-content .categ ul#projects li.project {
+    height: auto;
+    padding: 0;
+    width: 100%;
+    max-width: 445px;
+  }
+  .container #bloc-content .categ ul#projects li.project a.project-link {
+    padding: 20px 0 20px 20px;
+    font-size: 0.8em;
+  }
+}
+@media (max-width: 480px) {
+  .container #bloc-content .categ h3 {
+    font-size: 1.4em;
+  }
+  .container #bloc-content .categ ul#social li {
+    display: block;
+    margin: 0 0 8px 0;
+  }
+  .container #bloc-content .categ ul#social li a.social-link {
+    font-size: 1em;
+  }
+}
 /******* RETINA *******/
 /******* PRINT *******/
 @media print {
