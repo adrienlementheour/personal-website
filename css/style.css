@@ -498,12 +498,15 @@ a.plus-link:hover:after {
   width: 240px;
   height: auto;
   margin: 0;
-  padding: 15px 0 0 0;
+  padding: 14px 0 0 0;
   font-family: 'CamptonMedium', sans-serif;
   font-weight: normal;
   font-size: 0.95em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.container #bloc-content .categ h4.big-padding-top {
+  padding-top: 21px;
 }
 .container #bloc-content .categ h3 {
   font-family: 'CamptonMedium', sans-serif;
