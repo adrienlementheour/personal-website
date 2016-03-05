@@ -9,9 +9,9 @@ var animationTime = 1;
 // Animation au chargement //
 /////////////////////////////
 function animLoad(){
-	TweenMax.fromTo($("#bloc-content"), 0.8, {y: "100px", opacity: 0}, {y: "0", opacity: 1, delay: 0.8});
-	TweenMax.fromTo($(".categ"), 1, {y: "80px"}, {y: "0", delay: 0.8});
-	TweenMax.fromTo($(".categ h4"), 0.5, {y: "80px"}, {y: "0", delay: 0.8});
+	TweenMax.to($("#bloc-content"), 0.8, {y: "0", opacity: 1, delay: 0.8});
+	TweenMax.to($(".categ"), 1, {y: "0", delay: 0.8});
+	TweenMax.to($(".categ h4"), 0.5, {y: "0", delay: 0.8});
 }
 
 ///////////////////////

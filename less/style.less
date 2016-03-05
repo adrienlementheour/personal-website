@@ -220,6 +220,12 @@ a.plus-link{
 		width: 890px;
 		margin: 0 0 0 260px;
 		padding: 30px 0 75px 0;
+		opacity: 0;
+		transform: translateY(100px);
+		.no-js &{
+			opacity: 1;
+			transform: translateY(0);
+		}
 		#name{
 			color: @bleufolio;
 			line-height: 1.1em;
@@ -228,6 +234,10 @@ a.plus-link{
 			display: block;
 			position: relative;
 			margin-bottom: 120px;
+			transform: translateY(80px);
+			.no-js &{
+				transform: translateY(0);
+			}
 			&:last-child{
 				margin-bottom: 0;
 			}
@@ -243,6 +253,10 @@ a.plus-link{
 				margin: 0;
 				padding: 14px 0 0 0;
 				.campton-medium(0.95em);
+				transform: translateY(80px);
+				.no-js &{
+					transform: translateY(0);
+				}
 				&.big-padding-top{
 					padding-top: 21px;
 				}
