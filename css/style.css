@@ -316,18 +316,10 @@ body {
   line-height: 1;
 }
 h1 {
-  font-size: 3em;
-  margin: .67em 0;
-}
-h2 {
-  font-size: 2.5em;
-  margin: .83em 0;
-}
-h3 {
   font-size: 2em;
   margin: 1em 0;
 }
-h4 {
+h2 {
   font-size: 1.7em;
   margin: 1.33em 0;
 }
@@ -506,7 +498,16 @@ a.plus-link:hover:after {
 .container #bloc-content .categ:last-child {
   margin-bottom: 0;
 }
-.container #bloc-content .categ h4 {
+.container #bloc-content .categ h1 {
+  font-family: 'CamptonMedium', sans-serif;
+  font-weight: normal;
+  font-size: 2.25em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: block;
+  width: 610px;
+}
+.container #bloc-content .categ h2 {
   position: absolute;
   top: 0;
   left: -280px;
@@ -526,22 +527,13 @@ a.plus-link:hover:after {
       -ms-transform: translateY(80px);
           transform: translateY(80px);
 }
-.no-js .container #bloc-content .categ h4 {
+.no-js .container #bloc-content .categ h2 {
   -webkit-transform: translateY(0);
       -ms-transform: translateY(0);
           transform: translateY(0);
 }
-.container #bloc-content .categ h4.big-padding-top {
+.container #bloc-content .categ h2.big-padding-top {
   padding-top: 21px;
-}
-.container #bloc-content .categ h3 {
-  font-family: 'CamptonMedium', sans-serif;
-  font-weight: normal;
-  font-size: 2.25em;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  display: block;
-  width: 610px;
 }
 .container #bloc-content .categ strong {
   font-weight: normal;
@@ -553,6 +545,7 @@ a.plus-link:hover:after {
   margin: 0 0 0 -20px;
   padding: 0;
   list-style-type: none;
+  counter-reset: counter-projects;
 }
 .container #bloc-content .categ ul#projects li.project {
   display: block;
@@ -562,6 +555,7 @@ a.plus-link:hover:after {
   width: 445px;
   height: auto;
   border-top: 1px solid #000000;
+  counter-increment: counter-projects;
 }
 .container #bloc-content .categ ul#projects li.project a.project-link {
   display: block;
@@ -580,7 +574,9 @@ a.plus-link:hover:after {
   position: relative;
   z-index: 2;
 }
-.container #bloc-content .categ ul#projects li.project .num-project {
+.container #bloc-content .categ ul#projects li.project .num-project,
+.container #bloc-content .categ ul#projects li.project:after {
+  content: counter(counter-projects);
   display: block;
   width: 30px;
   height: auto;
@@ -761,7 +757,7 @@ a.plus-link:hover:after {
   .container #bloc-content #trait {
     left: 149px;
   }
-  .container #bloc-content .categ h3 {
+  .container #bloc-content .categ h1 {
     width: 100%;
     font-size: 2em;
   }
@@ -786,11 +782,11 @@ a.plus-link:hover:after {
   .container #bloc-content .categ {
     margin-bottom: 40px;
   }
-  .container #bloc-content .categ h3 {
+  .container #bloc-content .categ h1 {
     margin: 15px 0 0 0;
     font-size: 1.6em;
   }
-  .container #bloc-content .categ h4 {
+  .container #bloc-content .categ h2 {
     position: relative;
     text-align: left;
     width: auto;
@@ -813,7 +809,11 @@ a.plus-link:hover:after {
   }
 }
 @media (max-width: 480px) {
-  .container #bloc-content .categ h3 {
+  .container #bloc-illus {
+    top: -110px;
+    right: -250px;
+  }
+  .container #bloc-content .categ h1 {
     font-size: 1.4em;
   }
   .container #bloc-content .categ ul#social li {

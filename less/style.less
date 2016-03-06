@@ -35,21 +35,11 @@ body{
 }
 
 h1{
-    font-size: 3em;
-    margin: .67em 0;
-}
-
-h2{
-    font-size: 2.5em;
-    margin: .83em 0;
-}
-
-h3{
     font-size: 2em;
     margin: 1em 0;
 }
 
-h4{
+h2{
     font-size: 1.7em;
     margin: 1.33em 0;
 }
@@ -241,7 +231,12 @@ a.plus-link{
 			&:last-child{
 				margin-bottom: 0;
 			}
-			h4{
+			h1{
+				.campton-medium(2.25em);
+				display: block;
+				width: 610px;
+			}
+			h2{
 				position: absolute;
 				top: 0;
 				left: -280px;
@@ -261,11 +256,6 @@ a.plus-link{
 					padding-top: 21px;
 				}
 			}
-			h3{
-				.campton-medium(2.25em);
-				display: block;
-				width: 610px;
-			}
 			strong{
 				font-weight: normal;
 				color: @bleufolio;
@@ -276,6 +266,7 @@ a.plus-link{
 				margin: 0 0 0 -20px;
 				padding: 0;
 				list-style-type: none;
+				counter-reset: counter-projects;
 				li.project{
 					display: block;
 					position: relative;
@@ -284,6 +275,7 @@ a.plus-link{
 					width: 445px;
 					height: auto;
 					border-top: 1px solid @noir;
+					counter-increment: counter-projects;
 					a.project-link{
 						display: block;
 						width: 100%;
@@ -297,7 +289,8 @@ a.plus-link{
 						position: relative;
 						z-index: 2;
 					}
-					.num-project{
+					.num-project, &:after{
+						content: counter(counter-projects);
 						display: block;
 						width: 30px;
 						height: auto;

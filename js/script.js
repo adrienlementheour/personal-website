@@ -11,7 +11,7 @@ var animationTime = 1;
 function animLoad(){
 	TweenMax.to($("#bloc-content"), 0.8, {y: "0", opacity: 1, delay: 0.8});
 	TweenMax.to($(".categ"), 1, {y: "0", delay: 0.8});
-	TweenMax.to($(".categ h4"), 0.5, {y: "0", delay: 0.8});
+	TweenMax.to($(".categ h2"), 0.5, {y: "0", delay: 0.8});
 }
 
 ///////////////////////
@@ -91,53 +91,12 @@ function illus(){
 	
 }
 
-/////////////////////////
-// Lecture de la video //
-/////////////////////////
-function playVideo(){
-  $("li.project.open video").get(0).play();
-}
-
-////////////////////////
-/// Ouvrir un projet ///
-////////////////////////
-function openProject(projectLink){
-	var liParent = projectLink.closest("li.project");
-	liParent.addClass("open");
-	TweenMax.set($(".project-content"), {display: "block"});
-	var tlProjet = new TimelineMax();
-	tlProjet.to(liParent, 0.2, { width: "100%",  ease:Cubic.easeInOut});
-	tlProjet.to($(".video-wrapper", liParent), 0.3, { opacity: 1, y: "0", delay: 0.3,  ease:Linear.easeNone, onComplete:playVideo});
-}
-
-////////////////////////
-/// Fermer un projet ///
-////////////////////////
-function closeProject(projectLink){
-	var liParent = projectLink.closest("li.project");
-	liParent.addClass("open");
-	TweenMax.set($(".project-content"), {display: "block"});
-	var tlCloseProjet = new TimelineMax();
-	tlCloseProjet.to($(".video-wrapper", liParent), 0.3, { opacity: 0, y: "50px",  ease:Linear.easeNone});
-	tlCloseProjet.to(liParent, 0.3, { width: "445px",  ease:Linear.easeNone}),0;
-}
-
 $(document).ready(function(){
 	illus();
 	animLoad();
 	
 	TweenMax.set($(".project-content"), {display: "none"});
 	TweenMax.set($(".video-wrapper"), {opacity: 0, y: "50px"});
-	
-	/*$("a.project-link").click(function() {
-		if(!$("this").closest("li.project").hasClass("open")){
-			openProject($(this));
-		}else{
-			closeProject($(this));
-		}
-		
-		return false;
-	});*/
 });
 
 
