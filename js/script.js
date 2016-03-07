@@ -93,10 +93,14 @@ function illus(){
 
 $(document).ready(function(){
 	illus();
-	animLoad();
 	
 	TweenMax.set($(".project-content"), {display: "none"});
 	TweenMax.set($(".video-wrapper"), {opacity: 0, y: "50px"});
+});
+
+
+$(window).load(function() {
+	animLoad();
 });
 
 
