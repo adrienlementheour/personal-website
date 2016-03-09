@@ -150,8 +150,8 @@ a.plus-link{
 	position: relative;
 	transition: all 0.15s;
 	color: @noir;
-	&:after{
-		content: "+";
+	.plus{
+		display: block;
 		font-size: 70px;
 		position: absolute;
 		top: 50%;
@@ -167,10 +167,13 @@ a.plus-link{
 		opacity: 0;
 		transform: translateY(20px);
 		transition: all 0.15s;
+		&:before{
+			content: "+";
+		}
 	}
 	&:hover{
 		color: @bleufolio;
-		&:after{
+		.plus{
 			opacity: 1;
 			transform: translateY(0);
 		}
@@ -272,10 +275,10 @@ a.plus-link{
 					position: relative;
 					margin: 0;
 					padding: 0;
-					width: 445px;
+					width: 500px;
 					height: auto;
-					border-top: 1px solid @noir;
 					counter-increment: counter-projects;
+					overflow: hidden;
 					a.project-link{
 						display: block;
 						width: 100%;
@@ -288,18 +291,104 @@ a.plus-link{
 						.campton-semi-bold(1em);
 						position: relative;
 						z-index: 2;
-					}
-					.num-project, &:after{
-						content: counter(counter-projects);
-						display: block;
-						width: 30px;
-						height: auto;
-						position: absolute;
-						color: @bleufolio;
-						top: 5px;
-						right: 5px;
-						text-align: right;
-						.campton-medium(0.75em);
+						letter-spacing: 1px;
+						transform-style: preserve-3d;
+						backface-visibility: hidden;
+						transform: translateZ(1px);
+						&:before{
+							content: counter(counter-projects);
+							display: block;
+							width: 30px;
+							height: auto;
+							position: absolute;
+							color: @bleufolio;
+							top: 5px;
+							right: 10%;
+							right: calc(~"10% + 5px");
+							text-align: right;
+							.campton-medium(0.75em);
+							transition: all 0.2s ease-out;
+							display: block;
+						}
+						&:after{
+							content: "";
+							display: block;
+							width: 100%;
+							height: 1px;
+							position: absolute;
+							top: 0;
+							left: 0;
+							background-color: @noir;
+							transform: scaleX(0.9);
+							transition: transform 0.3s ease-out;
+							transform-origin: 0 50%;
+						}
+						.bandeau-hover{
+							display: block;
+							width: auto;
+							height: auto;
+							position: absolute;
+							top: 0;
+							right: 0;
+							bottom: 0;
+							left: 0;
+							background-color: @bleufolio;
+							transform: translateX(-100%) translateZ(1px);
+							transition: transform 0.3s ease-out;
+							transform-origin: 0 50%;
+							z-index: 2;
+							overflow: hidden;
+							transform-style: preserve-3d;
+							backface-visibility: hidden;
+							.content-txt{
+							    width: 100%;
+							    height: 100%;
+							    color: #fff;
+							    position: absolute;
+							    top: 0;
+							    left: 0;
+							    transform: translateX(100%) translateZ(1px);
+							    transition: transform 0.3s ease-out;
+							    box-sizing: border-box;
+							    padding: 20px 0 32px 20px;
+							    transform-style: preserve-3d;
+							    backface-visibility: hidden;
+							    &:before{
+							    	content: attr(data-hover);
+							    }
+							}
+						}
+						.action{
+							text-transform: none;
+							.campton-book(0.9em);
+							letter-spacing: 0;
+							position: absolute;
+							//top: 40px;
+							top: 45px;
+							right: 20px;
+							opacity: 0;
+							z-index: 3;
+							color: @blanc;
+						}
+						&:hover{
+							&:before{
+								opacity: 0;
+								transform: translateX(50px);
+							}
+							&:after{
+								transform: scaleX(1);
+							}
+							.action{
+								opacity: 1;
+								transform: translateX(0) translateZ(1px);
+							}
+							.bandeau-hover{
+								transform: translateX(0%) translateZ(1px);
+								.content-txt{
+									transform: translateX(0%) translateZ(1px);
+								}
+							}
+						}
 					}
 					.project-content{
 						position: relative;

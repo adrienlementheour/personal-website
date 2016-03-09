@@ -403,8 +403,7 @@ a.plus-link {
           transition: all 0.15s;
   color: #000000;
 }
-a.plus-link:after {
-  content: "+";
+a.plus-link .plus {
   font-size: 70px;
   position: absolute;
   top: 50%;
@@ -424,10 +423,13 @@ a.plus-link:after {
   -webkit-transition: all 0.15s;
           transition: all 0.15s;
 }
+a.plus-link .plus:before {
+  content: "+";
+}
 a.plus-link:hover {
   color: #1e32d2;
 }
-a.plus-link:hover:after {
+a.plus-link:hover .plus {
   opacity: 1;
   -webkit-transform: translateY(0);
       -ms-transform: translateY(0);
@@ -552,10 +554,10 @@ a.plus-link:hover:after {
   position: relative;
   margin: 0;
   padding: 0;
-  width: 445px;
+  width: 500px;
   height: auto;
-  border-top: 1px solid #000000;
   counter-increment: counter-projects;
+  overflow: hidden;
 }
 .container #bloc-content .categ ul#projects li.project a.project-link {
   display: block;
@@ -573,23 +575,134 @@ a.plus-link:hover:after {
   -moz-osx-font-smoothing: grayscale;
   position: relative;
   z-index: 2;
+  letter-spacing: 1px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform: translateZ(1px);
+          transform: translateZ(1px);
 }
-.container #bloc-content .categ ul#projects li.project .num-project,
-.container #bloc-content .categ ul#projects li.project:after {
+.container #bloc-content .categ ul#projects li.project a.project-link:before {
   content: counter(counter-projects);
-  display: block;
   width: 30px;
   height: auto;
   position: absolute;
   color: #1e32d2;
   top: 5px;
-  right: 5px;
+  right: 10%;
+  right: calc(10% + 5px);
   text-align: right;
   font-family: 'CamptonMedium', sans-serif;
   font-weight: normal;
   font-size: 0.75em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-transition: all 0.2s ease-out;
+          transition: all 0.2s ease-out;
+  display: block;
+}
+.container #bloc-content .categ ul#projects li.project a.project-link:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #000000;
+  -webkit-transform: scaleX(0.9);
+      -ms-transform: scaleX(0.9);
+          transform: scaleX(0.9);
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+          transition: transform 0.3s ease-out;
+  -webkit-transform-origin: 0 50%;
+      -ms-transform-origin: 0 50%;
+          transform-origin: 0 50%;
+}
+.container #bloc-content .categ ul#projects li.project a.project-link .bandeau-hover {
+  display: block;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #1e32d2;
+  -webkit-transform: translateX(-100%) translateZ(1px);
+          transform: translateX(-100%) translateZ(1px);
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+          transition: transform 0.3s ease-out;
+  -webkit-transform-origin: 0 50%;
+      -ms-transform-origin: 0 50%;
+          transform-origin: 0 50%;
+  z-index: 2;
+  overflow: hidden;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+.container #bloc-content .categ ul#projects li.project a.project-link .bandeau-hover .content-txt {
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform: translateX(100%) translateZ(1px);
+          transform: translateX(100%) translateZ(1px);
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+          transition: transform 0.3s ease-out;
+  box-sizing: border-box;
+  padding: 20px 0 32px 20px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+.container #bloc-content .categ ul#projects li.project a.project-link .bandeau-hover .content-txt:before {
+  content: attr(data-hover);
+}
+.container #bloc-content .categ ul#projects li.project a.project-link .action {
+  text-transform: none;
+  font-family: 'CamptonBook', sans-serif;
+  font-weight: normal;
+  font-size: 0.9em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0;
+  position: absolute;
+  top: 45px;
+  right: 20px;
+  opacity: 0;
+  z-index: 3;
+  color: #ffffff;
+}
+.container #bloc-content .categ ul#projects li.project a.project-link:hover:before {
+  opacity: 0;
+  -webkit-transform: translateX(50px);
+      -ms-transform: translateX(50px);
+          transform: translateX(50px);
+}
+.container #bloc-content .categ ul#projects li.project a.project-link:hover:after {
+  -webkit-transform: scaleX(1);
+      -ms-transform: scaleX(1);
+          transform: scaleX(1);
+}
+.container #bloc-content .categ ul#projects li.project a.project-link:hover .action {
+  opacity: 1;
+  -webkit-transform: translateX(0) translateZ(1px);
+          transform: translateX(0) translateZ(1px);
+}
+.container #bloc-content .categ ul#projects li.project a.project-link:hover .bandeau-hover {
+  -webkit-transform: translateX(0%) translateZ(1px);
+          transform: translateX(0%) translateZ(1px);
+}
+.container #bloc-content .categ ul#projects li.project a.project-link:hover .bandeau-hover .content-txt {
+  -webkit-transform: translateX(0%) translateZ(1px);
+          transform: translateX(0%) translateZ(1px);
 }
 .container #bloc-content .categ ul#projects li.project .project-content {
   position: relative;

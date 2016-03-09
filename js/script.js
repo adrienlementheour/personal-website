@@ -91,11 +91,25 @@ function illus(){
 	
 }
 
+function parallaxProject(){
+	$(".project-link").mousemove(function(e){
+		var xParallax = -(e.pageX + this.offsetLeft) / 20;
+		var yParallax = -(e.pageY-($(this).parent().index()*63) + this.offsetTop) / 20;
+		TweenMax.set($(".action", this), {x: xParallax+"px", y: yParallax+"px"});
+	});
+
+	/*$(".plus-link").mousemove(function(e){
+		var xParallax = -(e.pageX + this.offsetLeft) / 20;
+		var yParallax = -(e.pageY + this.offsetTop) / 20;
+		TweenMax.set($(".plus", this), {x: xParallax+"px", y: yParallax+"px"});
+	});*/
+}
+
 $(document).ready(function(){
 	illus();
-	
 	TweenMax.set($(".project-content"), {display: "none"});
 	TweenMax.set($(".video-wrapper"), {opacity: 0, y: "50px"});
+	parallaxProject();
 });
 
 
