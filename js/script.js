@@ -10,8 +10,11 @@ var animationTime = 1;
 /////////////////////////////
 function animLoad(){
 	TweenMax.to($("#bloc-content"), 0.8, {y: "0", opacity: 1, delay: 0.8});
-	TweenMax.to($(".categ"), 1, {y: "0", delay: 0.8});
-	TweenMax.to($(".categ h2"), 0.5, {y: "0", delay: 0.8});
+	//TweenMax.to($(".categ"), 1, {y: "0", delay: 0.8});
+	//TweenMax.to($(".categ h2"), 0.5, {y: "0", delay: 0.8});
+
+	TweenMax.staggerTo($(".categ"), 1, {y: "0", delay: 0.8, force3D:true}, 0.2);
+	TweenMax.staggerTo($(".categ h2"), 0.5, {y: "0", delay: 0.8, force3D:true}, 0.2);
 }
 
 ///////////////////////
