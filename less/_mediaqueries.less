@@ -3,33 +3,99 @@
 @media (max-width: 1150px){
     .container{
         width: 90%;
-        #bloc-content{
-            width: 830px;
-            margin: 0 0 0 200px;
+    }
+    #bloc-content{
+        width: 830px;
+        margin: 0 0 0 200px;
+    }
+    #bloc-illus{
+        .wrapper-img-illus{
+            width: 250px;
+            height: 250px;
+            top: 167px;
+            right: 15px;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+            .stroke-illus{
+                &#stroke-bottom{
+                    width: 150px;
+                    height: 157px;
+                    bottom: -36px;
+                    right: -18px;
+                    #path-stroke-bottom{
+                        width: 150px;
+                        height: 157px;
+                    }
+                }
+                &#stroke-top{
+                    width: 84px;
+                    height: 87px;
+                    top: -20px;
+                    left: -8px;
+                    #path-stroke-top{
+                        width: 84px;
+                        height: 87px;
+                    }
+                }
+            }
         }
     }
 }
 @media (max-width: 1024px){
-    .container{
-        padding: 160px 0 60px 0;
-        #bloc-illus{
-            margin: 0;
-            top: -40px;
-            right: -40px;
+    #main{
+        .container{
+            padding: 160px 0 60px 0;
         }
-        #bloc-content{
-            width: auto;
-            box-sizing: border-box;
-            padding: 30px 0 75px 170px;
-            margin: 0;
-            #trait{
-                left: 149px;
+    }
+    #bloc-illus{
+        .wrapper-img-illus{
+            width: 200px;
+            height: 200px;
+            top: 73px;
+            right: 15px;
+            img{
+                width: 100%;
+                height: 100%;
             }
-            .categ{
-                h1{
-                    width: 100%;
-                    font-size: 2em;
+            .stroke-illus{
+                &#stroke-bottom{
+                    width: 100px;
+                    height: 105px;
+                    bottom: -18px;
+                    right: -8px;
+                    #path-stroke-bottom{
+                        width: 100px;
+                        height: 105px;
+                    }
                 }
+                &#stroke-top{
+                    width: 56px;
+                    height: 58px;
+                    top: -4px;
+                    left: -4px;
+                    #path-stroke-top{
+                        width: 56px;
+                        height: 58px;
+                    }
+                }
+            }
+        }
+    }
+    #bloc-content{
+        width: auto;
+        box-sizing: border-box;
+        //padding: 30px 0 75px 170px;
+        padding: 30px 0 75px 130px;
+        margin: 0;
+        #trait{
+            left: 109px;
+        }
+        .categ{
+            h1{
+                width: 100%;
+                font-size: 2em;
             }
         }
     }
@@ -38,45 +104,46 @@
 }
 
 @media (max-width: 767px){
-    .container{
-        padding: 20px 0;
-        #bloc-illus{
-            top: -110px;
-            right: -200px;
+    #bloc-illus{
+        display: none;
+    }
+    #main{
+        .container{
+            padding: 20px 0;
         }
-        #bloc-content{
-            padding: 30px 0 75px 0;
-            #trait{
-                display: none;
+    }
+    #bloc-content{
+        padding: 30px 0 75px 0;
+        #trait{
+            display: none;
+        }
+        #name{
+            margin-bottom: 40px;
+        }
+        .categ{
+            margin-bottom: 40px;
+            h1{
+                margin: 15px 0 0 0;
+                font-size: 1.6em;
             }
-            #name{
-                margin-bottom: 40px;
+            h2{
+                position: relative;
+                text-align: left;
+                width: auto;
+                top: inherit;
+                left: inherit;
+                margin: 0 0 15px 0;
             }
-            .categ{
-                margin-bottom: 40px;
-                h1{
-                    margin: 15px 0 0 0;
-                    font-size: 1.6em;
-                }
-                h2{
-                    position: relative;
-                    text-align: left;
-                    width: auto;
-                    top: inherit;
-                    left: inherit;
-                    margin: 0 0 15px 0;
-                }
-                ul#projects{
-                    margin: 0;
-                    li.project{
-                        height: auto;
-                        padding: 0;
-                        width: 100%;
-                        max-width: 445px;
-                        a.project-link{
-                            padding: 20px 0 20px 20px;
-                            font-size: 0.8em;
-                        }
+            ul#projects{
+                margin: 0;
+                li.project{
+                    height: auto;
+                    padding: 0;
+                    width: 100%;
+                    max-width: 445px;
+                    a.project-link{
+                        padding: 20px 0 20px 20px;
+                        font-size: 0.8em;
                     }
                 }
             }
@@ -85,23 +152,38 @@
 }
 
 @media (max-width: 480px){
-    .container{
-        #bloc-illus{
-            top: -110px;
-            right: -250px;
-        }
-        #bloc-content{
-            .categ{
-                h1{
-                    font-size: 1.4em;
-                }
-                ul#social{
-                    li{
-                        display: block;
-                        margin: 0 0 8px 0;
-                        a.social-link{
-                            font-size: 1em;
+    #bloc-illus{
+        top: -110px;
+        right: -250px;
+    }
+    #bloc-content{
+        .categ{
+            h1{
+                font-size: 1.4em;
+            }
+            ul#projects{
+                li.project{
+                    a.project-link{
+                        &:before{
+                            right: 5px;
                         }
+                        &:after{
+                            transform: scaleX(1);
+                        }
+                        &:hover{
+                            &:before{
+                                transform: translateX(20px);
+                            }
+                        }
+                    }
+                }
+            }
+            ul#social{
+                li{
+                    display: block;
+                    margin: 0 0 8px 0;
+                    a.social-link{
+                        font-size: 1em;
                     }
                 }
             }

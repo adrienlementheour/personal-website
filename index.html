@@ -38,12 +38,25 @@
   </head>
 
 	<body>
-	  	<div class="container">
-	  		<div id="bloc-illus">
-				  <canvas id="canvas-bloc-illus"></canvas>
-	  		</div>
-	  		<div id="bloc-content">
-	  			<div id="trait"></div>
+    <section id="bloc-illus">
+      <div class="container">
+        <div class="wrapper-img-illus">
+          <img src="img/profil.png">
+          <svg  class="stroke-illus" id="stroke-top" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             viewBox="0 0 120 124" style="enable-background:new 0 0 120 124;" xml:space="preserve">
+            <path id="path-stroke-top" d="M15.5,108.5c13-30,53-82,89-93"/>
+          </svg>
+          <svg class="stroke-illus" id="stroke-bottom" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             viewBox="0 0 213 221" style="enable-background:new 0 0 213 221;" xml:space="preserve">
+            <path id="path-stroke-bottom" d="M15.5,205.5c37-96,111-36,132-85s21-94,50-105"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+    <section id="main">
+    	<div class="container">
+    		<div id="bloc-content">
+    			<div id="trait"></div>
   				<div id="name">Adrien <br />Le Menthéour</div>
   				
   				<div class="categ" id="about">
@@ -140,16 +153,15 @@
   						</li>
   					</ul>
   				</div>
-	  		</div>
-	  	</div>
-      <!-- Greensock -->
-      <script src="js/libs/tweens/TweenMax.min.js"></script>
-      <script src="js/libs/tweens/plugins/ScrollToPlugin.min.js"></script>
-      <script src="js/libs/tweens/plugins/BezierPlugin.min.js"></script>
-      <!-- Paper js -->
-      <script src="js/libs/paperjs/paper-full.min.js"></script>
+    		</div>
+    	</div>
+    </section>
+    <!-- Greensock -->
+    <script src="js/libs/tweens/TweenMax.min.js"></script>
+    <script src="js/libs/tweens/plugins/ScrollToPlugin.min.js"></script>
+    <script src="js/libs/tweens/plugins/DrawSVGPlugin.min.js"></script>
 
-      <script src='js/jquery-1.11.2.min.js'></script>
-      <script src='js/script.js'></script>
+    <script src='js/jquery-1.11.2.min.js'></script>
+    <script src='js/script.js'></script>
 	</body>
 </html>
