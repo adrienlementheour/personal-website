@@ -457,6 +457,9 @@ a.plus-link:hover .plus {
           transform: translateY(100px);
   mix-blend-mode: luminosity;
 }
+.is-ff #bloc-content {
+  mix-blend-mode: normal;
+}
 .no-js #bloc-content {
   opacity: 1;
   -webkit-transform: translateY(0);
@@ -838,6 +841,8 @@ a.plus-link:hover .plus {
           transform-style: preserve-3d;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
+  width: 300px;
+  height: 300px;
 }
 .no-js #bloc-illus .wrapper-img-illus {
   -webkit-transform: translateY(0);

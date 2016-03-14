@@ -4,6 +4,7 @@
 var tlBlocVideo;
 var animationEase = Cubic.easeInOut;
 var animationTime = 1;
+var isFF = !!window.sidebar;
 
 /////////////////////////////
 // Animation au chargement //
@@ -28,14 +29,18 @@ function parallaxProject(){
 		var yParallax = -(e.pageY-($(this).parent().index()*63) + this.offsetTop) / 20;
 		TweenMax.set($(".action", this), {x: xParallax+"px", y: yParallax+"px"});
 	});
-	$("body").mousemove(function(e){
-		var xParallax = -(e.pageX + this.offsetLeft) / 30;
-		var yParallax = -(e.pageY + this.offsetTop) / 30;
-		var xParallax2 = (e.pageX/2 + this.offsetLeft) / 20;
-		var yParallax2 = (e.pageY/2 + this.offsetTop) / 20;
-		TweenMax.set($("#stroke-top"), {x: xParallax+"px", y: yParallax+"px"});
-		TweenMax.set($("#stroke-bottom"), {x: xParallax2+"px", y: yParallax2+"px"});
-	});
+	if(!isFF){
+		$("body").mousemove(function(e){
+			var xParallax = -(e.pageX + this.offsetLeft) / 30;
+			var yParallax = -(e.pageY + this.offsetTop) / 30;
+			var xParallax2 = (e.pageX/2 + this.offsetLeft) / 20;
+			var yParallax2 = (e.pageY/2 + this.offsetTop) / 20;
+			TweenMax.set($("#stroke-top"), {x: xParallax+"px", y: yParallax+"px", z: "0", force3D:true});
+			TweenMax.set($("#stroke-bottom"), {x: xParallax2+"px", y: yParallax2+"px", z: "0", force3D:true});
+		});
+	}else{
+		$("body").addClass("is-ff");
+	}
 }
 
 $(document).ready(function(){

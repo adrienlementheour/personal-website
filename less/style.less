@@ -203,6 +203,9 @@ a.plus-link{
 	opacity: 0;
 	transform: translateY(100px);
 	mix-blend-mode: luminosity;
+	.is-ff &{
+		mix-blend-mode: normal;
+	}
 	.no-js &{
 		opacity: 1;
 		transform: translateY(0);
@@ -510,6 +513,8 @@ a.plus-link{
 		opacity: 0;
 		transform-style: preserve-3d;
 		backface-visibility: hidden;
+		width: 300px;
+		height: 300px;
 		.no-js &{
 			transform: translateY(0);
 			opacity: 1;
