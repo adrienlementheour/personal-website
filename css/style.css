@@ -394,6 +394,9 @@ body {
   width: 100%;
   overflow-x: hidden;
 }
+body.anim {
+  background: #424242;
+}
 a.plus-link {
   position: relative;
   -webkit-transition: all 0.15s;
